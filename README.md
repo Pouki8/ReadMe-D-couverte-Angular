@@ -15,3 +15,7 @@ Lorsque l'on parcours le **style.css**, qu'en à lieu est très complet. Il renv
 Le fichier **main.ts** qui est un **_"TypeScript"_** n'a que peut d'information.
 
 **Un gros dossier _app_ avec plusieurs fichiers et sous-dossier et un dossier _asset_ contenant un fichier _.json_.**
+
+## Partie 2 : Créer la liste de produits :
+
+#### Dans le fichier product-list.component.html :
