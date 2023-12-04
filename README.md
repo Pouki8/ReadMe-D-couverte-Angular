@@ -58,4 +58,23 @@ Nous créons un nouveau composant avec le terminal : **ng generate component pro
 
 Dans le terminal, nous devons créer de nouveau composant qui intégrera un fichier **.ts**, un fichier **.html**, un fichier **.css** et un fichier pour les tests **.ts**.
 
-Comme nous avons créer un nouveau composant, nous allons l'importer dans le fichier **app.module.ts**
+Comme nous avons créer un nouveau composant, il est automatiquement importer dans le fichier **app.module.ts** que nous ouvrons pour ajouter un itinéraire pour les détails du produit avec un `path` dans `import: []` par le biais de RouterModule qui est un module de `@angular/router` **Angular**.
+
+Nous allons, ensuite, dans le **.html** du composant **product-list** pour modifier l'ancre du nom du produit pour inclure un routerLink `[routerLink]="['/products', product.id]"` avec le `product.id`. _Comme expliqué plus tôt_ Cependant, les détails du produit ne s'affiche plus !
+
+C'est en modifiant le fichier **.ts** du composant **product-details**, que nous allons pouvoir afficher de nouveau les détails. Nous allons implémenter un OnInit à la classe `ProductDetailsComponent` et une propriété `product: Product | undefined;` qui sera undefined. Et, ajouter une propriété privé `route` dans le constructor : `constructor(private route: ActivatedRoute) { }`.
+Dans la méthode `ngOnInit()`, nous modifions pour accéder aux paramètres de l'itinéraire en utilisant `route.snapshot` qui active avec `ActivatedRouteSnapshot` qui contient les informations sur l'itinéraire actif à ce moment précis.
+
+Dans le **.html** du même composant, nous ajoutons un `*ngIf` que j'ai dû importé dans le fichier **app.module** et préciser les données qui doivent ressortir :
+
+```
+<h2>Product Details</h2>
+
+<div *ngIf="product">
+  <h3>{{ product.name }}</h3>
+  <h4>{{ product.price | currency }}</h4>
+  <p>{{ product.description }}</p>
+</div>
+```
+
+C'est alors que, lorsque l'utilisateur clique sur le nom du produit, le router dirige vers l'URL distincte du produit : **ProductDetailsComponent**. C'est dans ce composant que l'on a appelé les données du _le détail_, nom, prix et description. _(ces détails sont récupérer dans le fichier product.ts)_
