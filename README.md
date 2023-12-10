@@ -91,6 +91,8 @@ On génère un composant panier qui nous permettre d'avoir une nouvelle page qui
 
 Nous allons ajouter dans le fichier **.html** du composant **cart** la possibilité à l'utilisateur de saisir son nom et son adresse. Cela apparaîtra dans le panier.
 
+_Et ainsi de suite !_
+
 # En résumé :
 
 Chaque ajout de composant permet d'ajouter des pages liées à la page principale sans rechargement de la page. A chaque ajout de composant, ils sont directement importé dans le fichier **app.mocule.ts** mais nous devons les importer dans le fichier **.ts** des composants lorsqu'ils seront utilisé (ou appelé par le fichier **.html** mais nous les ajouterons dans les fichiers **.ts** préalablement).
