@@ -78,3 +78,25 @@ Dans le **.html** du même composant, nous ajoutons un `*ngIf` que j'ai dû impo
 ```
 
 C'est alors que, lorsque l'utilisateur clique sur le nom du produit, le router dirige vers l'URL distincte du produit : **ProductDetailsComponent**. C'est dans ce composant que l'on a appelé les données du _le détail_, nom, prix et description. _(ces détails sont récupérer dans le fichier product.ts)_
+
+## Partie 5 : Créer le service de panier d'achat :
+
+On génère un composant service cart pour pouvoir ajouter la possibilité d'ajouter au panier l'achat. On doit donc importer le composant dans le **Product-details.ts** pour pouvoir créer un bouton dans le **.html** qui permettra d'ajouter au panier le produit sélectionner.
+
+### Configurer le composant panier :
+
+On génère un composant panier qui nous permettre d'avoir une nouvelle page qui nous mène au panier pour voir nos produits ajoutés lorsqu'on a cliqué sur **acheter**. On va importerle composant dans l'app.module et un lien dans le **top-bar.component.html**. Nous allons aussi permettre de faire le lien dans le composant **cart** pour ajouter le **cartService** ce qui permettra de voir dans le panier les ajouts lors du click sur **acheter**. Nous récupérons aussi les prix dans le composant **shipping** en important le composant **cart-service** dans le composant **shipping.composant**.
+
+## Partie 6 : Création du formulaire :
+
+Nous allons ajouter dans le fichier **.html** du composant **cart** la possibilité à l'utilisateur de saisir son nom et son adresse. Cela apparaîtra dans le panier.
+
+# En résumé :
+
+Chaque ajout de composant permet d'ajouter des pages liées à la page principale sans rechargement de la page. A chaque ajout de composant, ils sont directement importé dans le fichier **app.mocule.ts** mais nous devons les importer dans le fichier **.ts** des composants lorsqu'ils seront utilisé (ou appelé par le fichier **.html** mais nous les ajouterons dans les fichiers **.ts** préalablement).
+
+Finallement, cela permettra de pouvoir modifier ou ajouter des données uniquement dans le composant dédié. Par exemple : si les prix des produits changent, nous n'aurons qu'à les modifier dans le **product.ts** qui sera appelé dans le composant **product-list** et affichera le **product-list.html** avec les données saisies dans le **product.ts**.
+
+De même, si l'utilisateur clique sur un des produits, il affichera ce qui est indiqué dans le **product.ts** puisque le composant **product-detail** a un import **product.ts**.
+
+A chaque ajout de composant, il y a l'import dont on a besoin pour renvoyer les données qui s'en réfère.
